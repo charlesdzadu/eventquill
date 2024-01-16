@@ -11,3 +11,4 @@ class CreateEvent(BaseModel):
 
 class Event(CustomBaseModel, CreateEvent):
     """ Event base Model """
+    is_active: bool = True
