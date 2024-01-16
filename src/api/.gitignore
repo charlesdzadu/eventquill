@@ -5,3 +5,5 @@ venv
 .env
 
 firebase_admin_sdk.json
+.pytest_cache
+
