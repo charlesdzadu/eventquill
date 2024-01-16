@@ -30,5 +30,4 @@ app = FastAPI(**app_configs)
 app.include_router(events_router, prefix="/v1")
 app.include_router(attendees_router, prefix="/v1")
 app.include_router(auth_router, prefix="/v1")
-app.include_router(users_router, prefix="/v1",
-                   dependencies=[api_key_dependency])
+app.include_router(users_router, prefix="/v1")
