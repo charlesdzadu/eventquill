@@ -1,3 +1,4 @@
+from datetime import datetime
 from pydantic import BaseModel, constr, EmailStr, Field
 
 
@@ -16,3 +17,11 @@ class CreatUserAccount(BaseModel):
 
 class User(CustomBaseModel):
     """ User base Model """
+    first_name: str = Field(..., description='First name of the user.')
+    last_name: str = Field(..., description='Last name of the user.')
+    email: EmailStr = Field(..., description='Email of the user.')
+    is_active: bool = Field(..., description='Is user active.')
+    is_verified: bool = Field(..., description='Is user verified.')
+
+    class Config:
+        from_attributes = True

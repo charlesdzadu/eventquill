@@ -1,6 +1,9 @@
 from fastapi import APIRouter
+from bson import ObjectId
 
 from app.core.database import client
+from .models import Event, CreateEvent
+from .services import EventService
 
 router = APIRouter(
     tags=['Events'],
@@ -8,13 +11,14 @@ router = APIRouter(
 )
 
 
-@router.post('/')
-def create_new_event():
-    db_names = client.list_database_names()
+@router.post('/', response_model=Event)
+def create_new_event(event: CreateEvent):
+    """ Create new event """
+    event = Event(**event.model_dump())
+    event_service = EventService(event)
+    new_event = event_service.create_new()
 
-    for db in db_names:
-        print(db)
-    pass
+    return new_event
 
 
 @router.get('/')
