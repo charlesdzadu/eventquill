@@ -1,9 +1,9 @@
+# Cache files
+.pytest_cache
 
-# Virtual Environment
 venv
-
-
-# Environment Variables
 .env
+
 firebase_admin_sdk.json
 .pytest_cache
+

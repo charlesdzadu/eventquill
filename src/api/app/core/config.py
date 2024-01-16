@@ -23,6 +23,7 @@ class EnvSettings(Settings):
     ENVIRONMENT: Environment = Environment.DEVELOPMENT
     MONGO_URI: str
     MONGO_DB_NAME: str
+    FIREBASE_ADMIN_SDK_PATH: str
 
 
 envSettings = EnvSettings()
